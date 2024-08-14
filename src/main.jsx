@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-// import App from './App.jsx'
+import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 // import App from './App'
@@ -10,6 +10,7 @@ import User from './components/User/User'
 import ErrorPage from './components/ErrorPage/ErrorPage'
 import Root from './components/Root/Root'
 import UserDetails from './components/User/UserDetails'
+// import App from './App'
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     
     errorElement: <ErrorPage></ErrorPage>,
     children : [
+      {
+        path : '/',
+        element : <App></App>
+      },
       {
         path : '/user',
         loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
